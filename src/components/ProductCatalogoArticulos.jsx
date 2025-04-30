@@ -31,10 +31,14 @@ const ImageSlider = ({ images }) => {
 const ProductCatalogoArticulos = ({ product }) => {
   const fotos = (product.fotos || "").split(",").map((url) => url.trim()).filter(Boolean);
   const nombre = product.nombre || "Sin nombre";
-  const precioCuota = product.precio_cuota ? `$${Number(product.precio_cuota).toLocaleString("es-AR")}` : "Consultar";
+  const precioCuotaNum = product.precio_cuota ? Number(product.precio_cuota) : null;
+  const precioCuota = precioCuotaNum ? `$${precioCuotaNum.toLocaleString("es-AR")}` : "Consultar";
   const cuotas = product.cantidad_de_cuotas || "1";
 
-  const whatsappMessage = encodeURIComponent("me interesaría comprar este artículo en cuotas");
+  // 🟢 Mensaje personalizado con nombre y precio
+  const whatsappMessage = encodeURIComponent(
+    `Hola! Me interesaría comprar el artículo "${nombre}" en ${cuotas} cuotas sin interés de ${precioCuota}`
+  );
   const whatsappUrl = `https://wa.me/541151347453?text=${whatsappMessage}`;
 
   return (
@@ -42,11 +46,14 @@ const ProductCatalogoArticulos = ({ product }) => {
       <ImageSlider images={fotos} />
 
       <CardContent>
-        <Typography variant="h6" fontWeight="bold" sx={{ minHeight: 63}}>{nombre}</Typography>
+        <Typography variant="h6" fontWeight="bold" sx={{ minHeight: 63 }}>{nombre}</Typography>
         <Typography variant="body1" sx={{ mt: 1, color: "green", fontWeight: "bold" }}>
           {cuotas} cuotas <span style={{ textTransform: "uppercase" }}>sin interés de:</span>
         </Typography>
         <Typography variant="h4" color="primary" fontWeight="bold">{precioCuota}</Typography>
+        <Typography variant="body2" sx={{ mt: 0, color: "black", fontWeight: "bold" }}>
+          con mercado pago
+        </Typography>
       </CardContent>
 
       <Box sx={{ p: 2 }}>

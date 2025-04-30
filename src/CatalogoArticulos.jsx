@@ -35,17 +35,17 @@ const CatalogoArticulos = () => {
 
   return (
     <>
-      <header style={{ textAlign: "center", marginTop: 40 }}>
-  <TextField
-    style={{ maxWidth: 600, background: 'white' }}
-    fullWidth
-    label="Buscar artículo"
-    variant="outlined"
-    color="secondary"
-    value={filtro}
-    onChange={(e) => setFiltro(e.target.value)}
-  />
-</header>
+        <header style={{ textAlign: "center", margin: '40px 12px 24px 12px' }}>
+            <TextField
+                style={{ maxWidth: 600, background: 'white' }}
+                fullWidth
+                label="Buscar artículo"
+                variant="outlined"
+                color="secondary"
+                value={filtro}
+                onChange={(e) => setFiltro(e.target.value)}
+            />
+        </header>
 
       <Container maxWidth="lg" sx={{ mt: 4 }}>
         <Helmet>
@@ -74,7 +74,7 @@ const CatalogoArticulos = () => {
         )}
       </Container>
 
-      <footer style={{ textAlign: "center", margin: 40 }}>
+      <footer style={{ textAlign: "center", margin: '40px 12px', width: '100%' }}>
         <Typography variant="caption">
           Catálogo personal desarrollado por <b>Luciano Recchini</b>
         </Typography>
