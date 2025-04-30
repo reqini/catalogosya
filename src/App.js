@@ -1,22 +1,26 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Home from "./Home"; 
+/* import Home from "./Home";  */
 import CatalogoIndumentaria from "./CatalogoIndumentaria"; 
-import CatalogoNails from "./CatalogoNails"; // 🆕 Importamos el catálogo de uñas
+import CatalogoNails from "./CatalogoNails"; 
 import EditCatalogAdvanced from "./EditCatalogAdvanced"; 
-import Catalogo from "./Catalogo"; // Nuevo componente genérico para renderizar catálogos según el rubro
+import CatalogoPeluqueria from "./CatalogoPeluqueria";
+import Catalogo from "./Catalogo";
+import CatalogoArticulos from "./CatalogoArticulos"; // 🆕 Agregado
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={<CatalogoArticulos />} />
         <Route path="/catalogoIndumentaria" element={<CatalogoIndumentaria />} />
-        <Route path="/catalogoNails" element={<CatalogoNails />} /> {/* 🆕 Nueva Ruta */}
+        <Route path="/catalogoNails" element={<CatalogoNails />} />
+        <Route path="/catalogoPeluqueria" element={<CatalogoPeluqueria />} />
         <Route path="/editar-catalogo" element={<EditCatalogAdvanced />} />
-        <Route path="/catalogo/:rubro" element={<Catalogo />} /> {/* Ruta dinámica para catálogos */}
-        <Route path="*" element={<Navigate to="/home" />} /> {/* Redirección 404 */}
+        <Route path="/catalogo/:rubro" element={<Catalogo />} />
+        <Route path="/catalogoArticulos" element={<CatalogoArticulos />} /> {/* ✅ NUEVA RUTA */}
+        <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
     </Router>
   );

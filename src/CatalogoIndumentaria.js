@@ -18,7 +18,7 @@ const CatalogoIndumentaria = () => {
 
   // Cargar datos del Google Sheet en formato CSV
   useEffect(() => {
-    const sheetId = "1TR5cXBl4wK5Wc-T2OP8q4nv62Kjl8E0KEFVx6RpRbQc";
+    const sheetId = "1zB8-2WtpUkrRHhcWEbYHcrIP9HZPsgP2Fy3QVeTCUA0";
     const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv`;
 
     fetch(csvUrl)
