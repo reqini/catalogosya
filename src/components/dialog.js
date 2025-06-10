@@ -57,6 +57,7 @@ export default function BancosDialog() {
         onClick={handleClickOpen}
         style={{
           width: 'auto',
+          display: 'none',
           position: 'fixed',
           right: 20,
         }}
